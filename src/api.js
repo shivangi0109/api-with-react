@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-const searchImages = async () => {
+const searchImages = async (term) => {
   const baseUrl = process.env.REACT_APP_UNSPLASH_BASE_URL;
   const accessKey = process.env.REACT_APP_UNSPLASH_ACCESS_KEY;
   const response = await axios.get(`${baseUrl}/search/photos`, {
@@ -8,13 +8,11 @@ const searchImages = async () => {
       Authorization: `Client-ID ${accessKey}`,
     }, 
     params: {
-      query: 'cars',
+      query: term,
     }
   })
 
-  console.log(response);
-
-  return response;
+  return response.data.results;
 }
 
 export default searchImages;
