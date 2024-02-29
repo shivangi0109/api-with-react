@@ -1,6 +1,6 @@
-function ImageList() {
+function ImageList({ images }) {
   return (
-    <div>ImageList</div>
+    <div>ImageList: {images.length}</div>
   );
 }
 
